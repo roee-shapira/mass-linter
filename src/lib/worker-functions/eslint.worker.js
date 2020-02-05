@@ -24,7 +24,6 @@ const { filePathBatch, homePath, logDirPath, dryRun } = workerData;
 		if (!dryRun) CLIEngine.outputFixes(report);
 
 		console.log(`[Thread #${threadId}] Finished linting.`);
-		parentPort.postMessage(report);
 	} catch (error) {
 		console.error(error);
 	} finally {

@@ -28,15 +28,15 @@ const jsCodeBasePath = path.join(homePath, './src/main/resources/r/js/');
 		dryRun: argv['--dry-run'] || argv['-d'],
 	};
 
+	const shouldTime = !argv['--no-time'];
 	if (!argv['--no-prettier']) {
-		if (!argv['--no-time']) console.time('Prettier task');
+		if (shouldTime) console.time('Prettier task');
 		await runPrettier(jsCodeBasePath, taskOptions);
-		if (!argv['--no-time']) console.timeEnd('Prettier task');
+		if (shouldTime) console.timeEnd('Prettier task');
 	}
-
 	if (!argv['--no-eslint']) {
-		if (!argv['--no-time']) console.time('Lint task');
+		if (shouldTime) console.time('Lint task');
 		await Promise.all(filePathBatches.map(filePathBatch => runESLint({ filePathBatch, ...taskOptions })));
-		if (!argv['--no-time']) console.timeEnd('Lint task');
+		if (shouldTime) console.timeEnd('Lint task');
 	}
 })();
