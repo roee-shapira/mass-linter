@@ -7,8 +7,8 @@ const dashToCamelCase = str => {
 };
 
 module.exports = {
-	parseArgsList(argList) {
-		return argList.reduce((accu, curr) => {
+	parseArgsList(argvRaw) {
+		return argvRaw.slice(2).reduce((accu, curr) => {
 			const parts = curr.split('=');
 			return Object.assign(accu, { [dashToCamelCase(parts[0])]: parts[1] || true });
 		}, {});

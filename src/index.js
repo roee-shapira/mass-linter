@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 const path = require('path');
 
-const { parseArgsList } = require('./lib/parse-args');
+const { parseArgv } = require('./lib/parse-args');
 const { glob } = require('./lib/glob');
 const { runESLint } = require('./lib/worker-functions');
 const { runPrettier } = require('./lib/shell-functions/prettier.cmd');
 
 const THREAD_COUNT = +process.env.UV_THREADPOOL_SIZE || 4;
-const argv = parseArgsList(process.argv.slice(2));
+const argv = parseArgv(process.argv);
 
 const homePath = path.resolve('C:\\develop\\code\\honeyfy\\WebFrontEnd');
 const jsCodeBasePath = path.join(homePath, './src/main/resources/r/js/');
