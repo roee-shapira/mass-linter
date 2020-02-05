@@ -5,10 +5,10 @@
 First, clone the repo:
 
 ```bash
-git clone https://github.com/roee-shapira/mass-linter.git
+$ git clone https://github.com/roee-shapira/mass-linter.git
 ```
 
-And then:
+And then[^heavy-task]:
 
 ```bash
 $ cd mass-linter
@@ -16,7 +16,7 @@ $ npm install
 $ npm start
 ```
 
-### Optional flags
+## Optional flags
 
 | Name                | Description                                      |
 | :------------------ | :----------------------------------------------- |
@@ -32,6 +32,6 @@ For example:
 $ npm start -- --dry-run
 ```
 
-### Side notes
+____
 
-This is a very heavy task and will use 100% CPU for a couple of minutes.
+[^heavy-task]: This is a very heavy task and will use 100% CPU for a couple of minutes.
