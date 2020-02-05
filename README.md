@@ -8,7 +8,7 @@ First, clone the repo:
 $ git clone https://github.com/roee-shapira/mass-linter.git
 ```
 
-And then[^heavy-task]:
+And then:
 
 ```bash
 $ cd mass-linter
@@ -34,4 +34,6 @@ $ npm start -- --dry-run
 
 ____
 
-[^heavy-task]: This is a very heavy task and will use 100% CPU for a couple of minutes.
+### Side notes
+
+This is a very heavy task and will use 100% CPU for a couple of minutes.
