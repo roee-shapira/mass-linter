@@ -5,7 +5,7 @@ const { ensureFileSync, createWriteStream } = require('fs-extra');
 module.exports = {
 	runPrettier(dirPath, { dryRun, logDirPath, ignorePattern } = {}) {
 		return new Promise((resolve, reject) => {
-			console.log(`Started prettier-ing ${dirPath}${dryRun ? ' ( dry running)' : ''}...`);
+			console.log(`Started prettier-ing ${dirPath}...`, dryRun ? '(no files will be changed)' : '');
 			const ignoreGlob = ignorePattern ? ` !${ignorePattern}` : '';
 
 			const child = spawn(
@@ -25,7 +25,7 @@ module.exports = {
 			);
 			child.on('error', reject);
 
-			const logPath = path.join(logDirPath, `./prettier.cmd/${dirPath}/${Date.now()}.log`);
+			const logPath = path.join(logDirPath, `./prettier.cmd/${dirPath.split(path.sep).pop()}/${Date.now()}.log`);
 			ensureFileSync(logPath);
 			const destStream = createWriteStream(logPath);
 			child.stdout.pipe(destStream);

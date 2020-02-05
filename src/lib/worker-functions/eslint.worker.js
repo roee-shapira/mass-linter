@@ -7,7 +7,7 @@ const { filePathBatch, homePath, logDirPath, dryRun } = workerData;
 
 (async function main() {
 	try {
-		console.log(`[Thread #${threadId}] Started linting - ${filePathBatch.length} file(s)...`);
+		console.log(`[Thread #${threadId}] Started linting - ${filePathBatch.length} file(s)...`, dryRun ? '(no files will be changed)' : '');
 		const cli = new CLIEngine({
 			fix: true,
 			cwd: homePath,
