@@ -10,7 +10,7 @@ function run(workerPath, workerData) {
 		worker.on('error', error => errorList.push(error));
 		worker.on('exit', code => {
 			if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`));
-			else resolve([messageList, errorList]);
+			else resolve({ messageList, errorList });
 		});
 	}).catch(console.error);
 }
