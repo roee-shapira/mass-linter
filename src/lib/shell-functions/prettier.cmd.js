@@ -25,7 +25,7 @@ module.exports = {
 			);
 			child.on('error', reject);
 
-			const logPath = path.join(logDirPath, `./prettier.cmd/${dirPath.split(path.sep).pop()}/${Date.now()}.log`);
+			const logPath = path.join(logDirPath, `./prettier.cmd/${dirPath}/${Date.now()}.log`);
 			ensureFileSync(logPath);
 			const destStream = createWriteStream(logPath);
 			child.stdout.pipe(destStream);
