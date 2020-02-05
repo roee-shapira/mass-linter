@@ -3,12 +3,14 @@ const path = require('path');
 
 function run(workerPath, workerData) {
 	return new Promise((resolve, reject) => {
+		const messageList = [];
+		const errorList = [];
 		const worker = new Worker(workerPath, { workerData });
-		worker.on('message', resolve);
-		worker.on('error', reject);
+		worker.on('message', msg => messageList.push(msg));
+		worker.on('error', error => errorList.push(error));
 		worker.on('exit', code => {
 			if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`));
-			else resolve();
+			else resolve([messageList, errorList]);
 		});
 	}).catch(console.error);
 }
