@@ -36,4 +36,4 @@ ____
 
 ### Foot notes
 
-<span id="heavy-task">This is a very heavy task and will use ~100% CPU for a couple of minutes. [&#x21A9;](#and-then)</span>
+1. <span id="heavy-task">This is a very heavy task and will use ~100% CPU for a couple of minutes. [&#x21A9;](#and-then)</span>

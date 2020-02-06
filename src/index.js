@@ -15,7 +15,7 @@ const homePath = path.resolve('C:/develop/code/honeyfy/WebFrontEnd/');
 	process.title = 'Quality week task - lint js files';
 
 	const globs = await glob(`${homePath}/**/*.@(js|jsx|json)`, {
-		ignore: ['**/target/**', '**/node_modules/**', '**/*.min.js', '**/test/resources/**'].concat(argv.ignorePattern || ''),
+		ignore: ['**/target/**', '**/node_modules/**', '**/*.min.js', '**/test/resources/**', '**/redoc/**'].concat(argv.ignorePattern || ''),
 	});
 	const chunkSize = Math.ceil(globs.length / THREAD_COUNT);
 	const filePathBatches = globs.reduce((acc, _, i) => (i % chunkSize ? acc : [...acc, globs.slice(i, i + chunkSize)]), []);
