@@ -6,12 +6,11 @@ module.exports = {
 	runPrettier(dirPath, { dryRun, logDirPath, ignorePattern } = {}) {
 		return new Promise((resolve, reject) => {
 			console.log(`Started prettier-ing ${dirPath}...`, dryRun ? '(no files will be changed)' : '');
-			const ignoreGlob = ignorePattern ? ` !${ignorePattern}` : '';
+			const ignoreGlob = ignorePattern ? `|${ignorePattern}` : '';
 
 			const child = spawn(
 				'npx prettier',
 				[
-					'--parser babel',
 					'--print-width 150',
 					'--tab-width 4',
 					'--single-quote',
@@ -19,7 +18,7 @@ module.exports = {
 					'--trailing-comma es5',
 					'--arrow-parens always',
 					dryRun ? '-l ' : '--write',
-					`"./**/*.{js,jsx,json} !**/target/**${ignoreGlob}"`,
+					`"./**/*.{js,jsx,json} !(**/target/**${ignoreGlob})"`,
 				],
 				{ cwd: dirPath, shell: process.platform === 'win32', windowsHide: true }
 			);

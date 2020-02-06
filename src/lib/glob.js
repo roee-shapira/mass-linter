@@ -7,6 +7,6 @@ module.exports = {
 				if (err) return reject(err);
 				return resolve(res);
 			})
-		);
+		).catch(console.error);
 	},
 };

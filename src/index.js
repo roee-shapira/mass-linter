@@ -15,8 +15,8 @@ const jsCodeBasePath = path.join(homePath, './src/main/resources/r/js/');
 (async function main() {
 	process.title = 'Quality week task - lint js files';
 
-	const globs = await glob(`${jsCodeBasePath}**/*.js`, { ignore: argv.ignorePattern });
-	const chunkSize = globs.length / THREAD_COUNT;
+	const globs = await glob(`${jsCodeBasePath}**/*.@(js|jsx|json)`, { ignore: ['target/**'].concat(argv.ignorePattern || '') });
+	const chunkSize = Math.ceil(globs.length / THREAD_COUNT);
 	const filePathBatches = globs.reduce((acc, _, i) => (i % chunkSize ? acc : [...acc, globs.slice(i, i + chunkSize)]), []);
 
 	const taskOptions = {
