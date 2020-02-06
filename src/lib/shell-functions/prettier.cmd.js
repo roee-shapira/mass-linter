@@ -19,7 +19,7 @@ module.exports = {
 					'--trailing-comma es5',
 					'--arrow-parens always',
 					dryRun ? '-l ' : '--write',
-					`"./**/*.{js,jsx} !**/target/**${ignoreGlob}"`,
+					`"./**/*.{js,jsx,json} !**/target/**${ignoreGlob}"`,
 				],
 				{ cwd: dirPath, shell: process.platform === 'win32', windowsHide: true }
 			);
