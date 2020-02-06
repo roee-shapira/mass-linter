@@ -40,7 +40,7 @@ const homePath = path.resolve('C:/develop/code/honeyfy/WebFrontEnd/');
 	}
 	if (!argv.noSortPackageJson) {
 		if (shouldTime) console.time('Package.json sort task');
-		await runSortPackageJson(homePath, { ...taskOptions });
+		await runSortPackageJson(homePath, taskOptions);
 		if (shouldTime) console.timeEnd('Package.json sort task');
 	}
 })();
