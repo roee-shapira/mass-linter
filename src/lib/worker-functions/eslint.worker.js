@@ -12,8 +12,7 @@ const { filePathBatch, homePath, logDirPath, dryRun } = workerData;
 			fix: true,
 			cwd: homePath,
 			extensions: ['.js', '.jsx'],
-			configFile: path.join(homePath, '.eslintrc'),
-			ignorePattern: ['node_modules/', '.min.js', 'redoc'],
+			configFile: path.join(homePath, './.eslintrc'),
 		});
 		const report = cli.executeOnFiles(filePathBatch);
 

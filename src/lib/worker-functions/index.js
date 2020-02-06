@@ -19,4 +19,7 @@ module.exports = {
 	runESLint(workerData) {
 		return run(path.join(__dirname, './eslint.worker.js'), workerData);
 	},
+	runPrettier(workerData) {
+		return run(path.join(__dirname, './prettier.worker.js'), workerData);
+	},
 };

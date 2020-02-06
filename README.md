@@ -18,13 +18,13 @@ $ npm start
 
 ## Optional flags
 
-| Name                | Description                                      |
-| :------------------ | :----------------------------------------------- |
-| `--dry-run` or `-d` | Runs the program but the files are *not* changed |
-| `--no-prettier`     | Do not run the prettier task                     |
-| `--no-eslint`       | Do not run the eslint task                       |
-| `--no-time`         | Do not output the run time it took for each task |
-
+| Name                     | Description                                      |
+| :----------------------- | :----------------------------------------------- |
+| `--dry-run` or `-d`      | Runs the program but the files are *not* changed |
+| `--no-prettier`          | Do not run the prettier task                     |
+| `--no-eslint`            | Do not run the eslint task                       |
+| `--no-sort-package-json` | Do not sort the package.json files               |
+| `--no-time`              | Do not output the run time it took for each task |
 
 For example:
 
