@@ -11,7 +11,7 @@ const { filePathBatch, homePath, logDirPath, dryRun } = workerData;
 		const cli = new CLIEngine({
 			fix: true,
 			cwd: homePath,
-			extensions: ['.js', '.jsx'],
+			extensions: ['.js', '.jsx', '.json'],
 			configFile: path.join(homePath, './.eslintrc'),
 		});
 		const report = cli.executeOnFiles(filePathBatch);

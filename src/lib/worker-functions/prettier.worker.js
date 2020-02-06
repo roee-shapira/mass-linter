@@ -26,6 +26,7 @@ const { filePathBatch, logDirPath, dryRun } = workerData;
 					quoteProps: 'as-needed',
 					trailingComma: 'es5',
 					arrowParens: 'always',
+					endOfLine: 'crlf',
 				});
 				if (!dryRun) await writeFile(filepath, prettyContent, { flag: 'w' }).catch(console.error);
 			} catch (fileError) {
