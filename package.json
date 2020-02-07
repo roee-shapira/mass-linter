@@ -32,7 +32,7 @@
 		"lint-staged": "^10.0.7",
 		"rimraf": "^3.0.1"
 	},
-	"husky":  {
+	"husky": {
 		"hooks": {
 			"pre-commit": {
 				"./**/*.js": [
