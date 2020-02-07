@@ -2,19 +2,29 @@
 	"name": "mass-linter",
 	"version": "1.0.0",
 	"description": "A package to lint *all* js files",
-	"main": "src/index.js",
-	"scripts": {
-		"start": "set UV_THREADPOOL_SIZE=10 && node --max-old-space-size=8192 ./src/index.js",
-		"start:dry": "set UV_THREADPOOL_SIZE=10 && node --max-old-space-size=8192 ./src/index.js --dry-run",
-		"clean": "rimraf node_modules/ logs/"
-	},
 	"keywords": [
 		"lint",
 		"eslint",
 		"prettier"
 	],
-	"author": "Roee Shapira",
 	"license": "ISC",
+	"author": "Roee Shapira",
+	"main": "src/index.js",
+	"scripts": {
+		"clean": "rimraf node_modules/ logs/",
+		"start": "set UV_THREADPOOL_SIZE=10 && node --max-old-space-size=8192 ./src/index.js",
+		"start:dry": "set UV_THREADPOOL_SIZE=10 && node --max-old-space-size=8192 ./src/index.js --dry-run"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"**/package.json": "sort-package-json",
+		"*.js": "eslint --cache --fix",
+		"*.{js,css,md}": "prettier --write"
+	},
 	"dependencies": {
 		"eslint": "^6.8.0",
 		"fs-extra": "^8.1.0",
@@ -28,19 +38,11 @@
 		"@types/glob": "^7.1.1",
 		"@types/node": "^13.7.0",
 		"@types/prettier": "^1.19.0",
+		"eslint": "^6.8.0",
 		"husky": "^4.2.1",
 		"lint-staged": "^10.0.7",
-		"rimraf": "^3.0.1"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": {
-				"./**/*.js": [
-					"eslint --fix .",
-					"prettier --write .",
-					"git add"
-				]
-			}
-		}
+		"prettier": "^1.19.1",
+		"rimraf": "^3.0.1",
+		"sort-package-json": "^1.39.1"
 	}
 }
