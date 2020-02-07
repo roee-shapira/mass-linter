@@ -28,6 +28,17 @@
 		"@types/glob": "^7.1.1",
 		"@types/node": "^13.7.0",
 		"@types/prettier": "^1.19.0",
+		"husky": "^4.2.1",
+		"lint-staged": "^10.0.7",
 		"rimraf": "^3.0.1"
+	},
+	"husky":  {
+		"pre-commit": {
+			"./**/*.js": [
+				"eslint --fix .",
+				"prettier --write .",
+				"git add"
+			]
+		}
 	}
 }
