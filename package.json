@@ -30,10 +30,10 @@
 		"fs-extra": "^8.1.0",
 		"glob": "^7.1.6",
 		"prettier": "^1.19.1",
-		"react": "^16.11.0"
+		"react": "16.11.0"
 	},
 	"devDependencies": {
-		"@types/eslint": "^6.1.7",
+		"@types/eslint": "^6.1.8",
 		"@types/fs-extra": "^8.0.1",
 		"@types/glob": "^7.1.1",
 		"@types/node": "^13.7.0",
@@ -42,7 +42,7 @@
 		"husky": "^4.2.1",
 		"lint-staged": "^10.0.7",
 		"prettier": "^1.19.1",
-		"rimraf": "^3.0.1",
+		"rimraf": "^3.0.2",
 		"sort-package-json": "^1.39.1"
 	}
 }

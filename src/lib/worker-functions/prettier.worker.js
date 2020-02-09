@@ -11,7 +11,10 @@ const { filePathBatch, logDirPath, dryRun } = workerData;
 	const logStream = createWriteStream(logPath);
 
 	try {
-		console.log(`[Thread #${threadId}] Started prettier-ing ${filePathBatch.length} file(s)...`, dryRun ? '(no files will be changed)' : '');
+		console.log(
+			`[Thread #${threadId}] Started prettier-ing ${filePathBatch.length} file(s)...`,
+			dryRun ? '(no files will be changed)' : ''
+		);
 
 		for (const filepath of filePathBatch) {
 			logStream.write(filepath + '\n');
