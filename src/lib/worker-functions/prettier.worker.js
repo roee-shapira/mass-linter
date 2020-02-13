@@ -30,6 +30,7 @@ const { filePathBatch, logDirPath, dryRun } = workerData;
 					trailingComma: 'es5',
 					arrowParens: 'always',
 					endOfLine: 'crlf',
+					htmlWhitespaceSensitivity: 'strict',
 				});
 				if (!dryRun) await writeFile(filepath, prettyContent, { flag: 'w' });
 			} catch (fileError) {
